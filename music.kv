@@ -1,0 +1,59 @@
+#:import utils kivy.utils
+
+<ButtonWidget>:
+	background_normal: ''
+	background_color: (0.33,0.49,0.84, 1)
+
+<TextInputWidget>:
+	text: 'hello'
+
+<RootWidget>:
+    BoxLayout:
+        size: self.size
+        pos: self.pos
+
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex('567dd8')
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        FloatLayout:
+        	canvas.before:
+        		Color:
+        			rgb: utils.get_color_from_hex('324572')
+        		Rectangle:
+        			size: self.size
+        			pos: self.pos
+        	size_hint: (0.3,1)
+        
+        	FloatLayout:
+        		pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+        		size_hint: (1, 0.5)
+
+        		ButtonWidget:
+        			size_hint: (0.8,0.15)
+        			pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        			text: 'Download'
+        			radius: [50,50]
+                    on_press: self.download(self)
+
+        		ButtonWidget:
+        			size_hint: (0.8, 0.15)
+        			pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+        			text: 'Library'
+        			on_press: self.library(self)
+
+                ButtonWidget:
+                    size_hint: (0.8, 0.15)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+                    text: 'Exit'
+                    on_press: app.stop()                    
+
+        GridLayout:
+            rows: 2
+            cols: 0
+        				
+
+        			
